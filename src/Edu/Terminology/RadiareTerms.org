@@ -1,0 +1,109 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t
+#+OPTIONS: c:nil creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t
+#+OPTIONS: inline:t num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t
+#+OPTIONS: tex:t timestamp:t title:t toc:t todo:t |:t
+#+TITLE: RadiareTerms
+#+DATE: <2017-04-22 Sat>
+#+AUTHOR: Timothy C. Burt
+#+EMAIL: tcburt
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.3.1 (Org mode 8.3.1)
+
+
+#+LATEX_CLASS: article
+#+LATEX_CLASS_OPTIONS:
+#+LATEX_HEADER: \usepackage{siunitx}
+#+LATEX_HEADER: \DeclareSIUnit\talbot{T}
+#+LATEX_HEADER: \usepackage{tikz}
+#+LATEX_HEADER: \usetikzlibrary{calc}
+#+LATEX_HEADER: \usetikzlibrary{arrows.meta}
+#+LATEX_HEADER_EXTRA:
+#+DESCRIPTION:
+#+KEYWORDS:
+#+SUBTITLE:
+#+DATE: \today
+
+
+
+* Terminology for Radiometry and its Kin
+
+Common concepts
+|----------------+--------+------------------------------------------+--------------------------+-------------------------------------------|
+| Concept        | Symbol | Unit (description)                       | Dimension                | Relation                                  |
+|----------------+--------+------------------------------------------+--------------------------+-------------------------------------------|
+| energy         | $Q$    | energy                                   | $\mathsf{L^2MT^{-2}}$    | $Q$                                       |
+| energy density | $u$    | energy per volume                        | $\mathsf{L^{-1}MT^{-2}}$ | $u=\frac{dQ}{dV}$                         |
+| fluence        | $H$    | energy per area                          | $\mathsf{MT^{-2}}$       | $H=\frac{dQ}{dA}$                         |
+| directance     | $D$    | energy per solid angle                   | $\mathsf{L^2MT^{-2}}$    | $D=\frac{dQ}{d\Omega}$                    |
+| flux           | $\Phi$ | energy per time                          | $\mathsf{L^2MT^{-3}}$    | $\Phi=\frac{dQ}{dt}$                      |
+| exitance       | $M$    | energy per time per area                 | $\mathsf{MT^{-3}}$       | $M=\frac{d^2Q}{dt dA}$                    |
+| arrivance      | $E$    | energy per time per area                 | $\mathsf{MT^{-3}}$       | $E=\frac{d^2Q}{dt dA}$                    |
+| intensity      | $I$    | energy per time per solid angle          | $\mathsf{L^2MT^{-3}}$    | $I=\frac{d^2Q}{dt d\Omega \cos\theta}$    |
+| brightness     | $L$    | energy per time per area per solid angle | $\mathsf{MT^{-3}}$       | $L=\frac{d^3Q}{dt dA d\Omega \cos\theta}$ |
+|----------------+--------+------------------------------------------+--------------------------+-------------------------------------------|
+
+From the http://physics.nist.gov/Pubs/SP330/sp330.pdf
+Dimension symbols: LMT
+  - Talbot: https://en.wikipedia.org/wiki/Lumen_second
+
+Radiometric terms
+|------------------------+-------------------+--------------------------------------------------------+-----------------------------------------------------------------|
+| Concept                | Symbol            | Unit                                                   | Relation                                                        |
+|                        |                   | (SI)                                                   |                                                                 |
+|------------------------+-------------------+--------------------------------------------------------+-----------------------------------------------------------------|
+| radiant energy         | $Q_{\text{e}}$    | \si{\joule}                                            | $Q_{\text{e}}$                                                  |
+| radiant energy density | $u_{\text{e}}$    | \si{\joule\per\meter\cubed}                            | $u_{\text{e}}=\frac{dQ_{\text{e}}}{dV}$                         |
+| radiant fluence        | $H_{\text{e}}$    | \si{\joule\per\meter\squared}                          | $H_{\text{e}}=\frac{dQ_{\text{e}}}{dA}$                         |
+| radiant directance     | $D_{\text{e}}$    | \si{\joule\per\steradian}                              | $D_{\text{e}}=\frac{dQ_{\text{e}}}{d\Omega}$                    |
+| radiant flux           | $\Phi_{\text{e}}$ | \si{\joule\per\second}                                 | $\Phi_{\text{e}}=\frac{dQ_{\text{e}}}{dt}$                      |
+| radiant exitance       | $M_{\text{e}}$    | \si{\joule\per\second\per\meter\squared}               | $M_{\text{e}}=\frac{d^2Q_{\text{e}}}{dt dA}$                    |
+| irradiance             | $E_{\text{e}}$    | \si{\joule\per\second\per\meter\squared}               | $E_{\text{e}}=\frac{d^2Q_{\text{e}}}{dt dA}$                    |
+| radiant intensity      | $I_{\text{e}}$    | \si{\joule\per\second\per\steradian}                   | $I_{\text{e}}=\frac{d^2Q_{\text{e}}}{dt d\Omega \cos\theta}$    |
+| radiance               | $L_{\text{e}}$    | \si{\joule\per\second\per\meter\squared\per\steradian} | $L_{\text{e}}=\frac{d^3Q_{\text{e}}}{dt dA d\Omega \cos\theta}$ |
+|------------------------+-------------------+--------------------------------------------------------+-----------------------------------------------------------------|
+
+Photometric terms
+|-------------------------+-------------------+------------------------------------+-----------------------------------------------+---------------------------------------------------------+-----------------------------------------------------------------|
+| Concept                 | Symbol            | Unit                               | Unit                                          | Unit                                                    | Relation                                                        |
+|                         |                   | (named)                            | (SI)                                          | (Talbot-based)                                          |                                                                 |
+|-------------------------+-------------------+------------------------------------+-----------------------------------------------+---------------------------------------------------------+-----------------------------------------------------------------|
+| luminous energy         | $Q_{\text{v}}$    | \si{\lumen\second}                 | \si{\candela\radian\second}                   | \si{\talbot}                                            | $Q_{\text{v}}$                                                  |
+| luminous energy density | $u_{\text{v}}$    | \si{\lumen\second\per\meter\cubed} | \si{\candela\radian\second\per\meter\cubed}   | \si{\talbot\per\meter\cubed}                            | $u_{\text{v}}=\frac{dQ_{\text{v}}}{dV}$                         |
+| luminous fluence        | $H_{\text{v}}$    | \si{\lux\second}                   | \si{\candela\radian\second\per\meter\squared} | \si{\talbot\per\meter\squared}                          | $H_{\text{v}}=\frac{dQ_{\text{v}}}{dA}$                         |
+| luminous directance     | $D_{\text{v}}$    | \si{\candela\second}               | \si{\candela\second}                          | \si{\talbot\per\steradian}                              | $D_{\text{v}}=\frac{dQ_{\text{v}}}{d\Omega}$                    |
+| luminous flux           | $\Phi_{\text{v}}$ | \si{\lumen}                        | \si{\candela\radian}                          | \si{\talbot\per\second}                                 | $\Phi_{\text{v}}=\frac{dQ_{\text{v}}}{dt}$                      |
+| luminous exitance       | $M_{\text{v}}$    | \si{\lux}                          | \si{\candela\radian\per\meter\squared}        | \si{\talbot\per\second\per\meter\squared}               | $M_{\text{v}}=\frac{d^2Q_{\text{v}}}{dt dA}$                    |
+| illuminance             | $E_{\text{v}}$    | \si{\lux}                          | \si{\candela\radian\per\meter\squared}        | \si{\talbot\per\second\per\meter\squared}               | $E_{\text{v}}=\frac{d^2Q_{\text{v}}}{dt dA}$                    |
+| luminous intensity      | $I_{\text{v}}$    | \si{\candela}                      | \si{\candela}                                 | \si{\talbot\per\second\per\steradian}                   | $I_{\text{v}}=\frac{d^2Q_{\text{v}}}{dt d\Omega \cos\theta}$    |
+| luminance               | $L_{\text{v}}$    | \si{\candela\per\meter\squared}    | \si{\candela\per\meter\squared}               | \si{\talbot\per\second\per\meter\squared\per\steradian} | $L_{\text{v}}=\frac{d^3Q_{\text{v}}}{dt dA d\Omega \cos\theta}$ |
+|-------------------------+-------------------+------------------------------------+-----------------------------------------------+---------------------------------------------------------+-----------------------------------------------------------------|
+
+#+BEGIN_SRC latex
+  \begin{tikzpicture}[>={Kite[]}]
+    \def\connLen{3}
+    \coordinate (origin) at (0,0);
+    % Set nodes
+    \begin{scope}[every node/.style={draw, fill=green!30,rounded corners}]
+    \node (Q) at (origin) {$Q$};
+    \node (L) at ($(origin) + (-0.75*\connLen,0)$) {$L$};
+    \node (Phi) at ($(origin) + (0.75*\connLen,0)$) {$\Phi$};
+    \node (I) at ($(origin) + (0, 1.0*\connLen)$) {$I$};
+    \node (D) at ($(origin) + (0, 0.5*\connLen)$) {$D$};
+    \node (H) at ($(origin) + (0, -0.5*\connLen)$) {$H$};
+    \node (E) at ($(origin) + (0, -1.0*\connLen)$) {$E$};
+    \end{scope}
+
+    % Conversions
+    \draw [->] (L) |- (I) node [near end, above] {$\int L dA$};
+    \draw [->] (I) -| (Phi) node [near start, above] {$\int I d\Omega$};
+    \draw [->] (I) -- (D) node [midway, left] {$\int I dt$};
+    \draw [->] (D) -- (Q) node [midway, left] {$\int D d\Omega$};
+    \draw [->] (L) |- (E) node [near end, below] {$\int L d\Omega$};
+    \draw [->] (E) -| (Phi) node [near start, below] {$\int E dA$};
+    \draw [->] (E) -- (H) node [midway, left] {$\int E dt$};
+    \draw [->] (H) -- (Q) node [midway, left] {$\int H dA$};
+    \draw [->] (Phi) -- (Q) node [midway, above] {$\int \Phi dt$};
+  \end{tikzpicture}
+#+END_SRC

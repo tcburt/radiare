@@ -1,0 +1,9 @@
+* Radiare
+
+This is a collection of notes and utilities for radiometry. 
+
+** Terminology
+
+| Name   | Symbol |
+|--------+--------|
+| energy | $Q$    |
